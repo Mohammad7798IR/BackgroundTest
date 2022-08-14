@@ -18,14 +18,5 @@ namespace TestApp.Service
             return await _userRepository.GetAllUsers();
         }
 
-        public void UpdateUser(ApplicationUser user)
-        {
-            _userRepository.UpdateUser(user);
-        }
-
-        public async Task SaveChanges()
-        {
-            await _userRepository.SaveChanges();
-        }
     }
 }

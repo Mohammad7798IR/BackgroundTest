@@ -6,8 +6,8 @@ namespace TestApp.Service
     {
         Task<List<ApplicationUser>> GetAllUsers();
 
-        void UpdateUser(ApplicationUser user);
+        //void UpdateUser(ApplicationUser user);
 
-        Task SaveChanges();
+        //Task SaveChanges();
     }
 }

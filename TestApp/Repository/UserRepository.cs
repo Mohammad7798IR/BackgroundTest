@@ -15,7 +15,7 @@ namespace TestApp.Repository
 
         public async Task<List<ApplicationUser>> GetAllUsers()
         {
-            return await _context.Users.Where(a => DateTime.Now.Minute - a.CreatedAt.Minute > 1).ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
 

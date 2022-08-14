@@ -1,4 +1,5 @@
-﻿using TestApp.Service;
+﻿using TestApp.Repository;
+using TestApp.Service;
 
 namespace TestApp.BackgroundTask
 {
@@ -19,6 +20,11 @@ namespace TestApp.BackgroundTask
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
+
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            //{
+            //    _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.Zero);
+            //}
             _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
 
             return Task.CompletedTask;
@@ -35,15 +41,15 @@ namespace TestApp.BackgroundTask
 
             using (var scope = _serviceScopeFactory.CreateScope())
             {
-                var rep = scope.ServiceProvider.GetRequiredService<IUserService>();
-                var users = await rep?.GetAllUsers();
+                var rep = scope.ServiceProvider.GetRequiredService<IUserRepository>();
 
+                var users = await rep.GetAllUsers();
 
                 foreach (var item in users)
                 {
                     if (!item.EmailConfirmed)
                     {
-                         rep.UpdateUser(item);
+                        rep.UpdateUser(item);
                         await rep.SaveChanges();
                     }
                 }
