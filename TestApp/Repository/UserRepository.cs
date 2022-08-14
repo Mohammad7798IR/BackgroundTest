@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using TestApp.Context;
 using TestApp.Models;
 
@@ -7,10 +8,12 @@ namespace TestApp.Repository
     public class UserRepository : IUserRepository
     {
         private readonly TestDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserRepository(TestDbContext context)
+        public UserRepository(TestDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task<List<ApplicationUser>> GetAllUsers()
@@ -18,10 +21,15 @@ namespace TestApp.Repository
             return await _context.Users.ToListAsync();
         }
 
-
-        public void UpdateUser(ApplicationUser user)
+        public async Task<bool> SignUp(ApplicationUser user)
         {
-            _context.Users.Update(user);
+            return (await _userManager.CreateAsync(user, user.PasswordHash)).Succeeded;
+        }
+
+
+        public async Task<bool> UpdateUser(ApplicationUser user)
+        {
+            return (await _userManager.UpdateAsync(user)).Succeeded;
         }
 
         public async Task SaveChanges()

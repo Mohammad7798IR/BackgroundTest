@@ -12,7 +12,7 @@ namespace TestApp.Context
 
         public TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : base(dbContextOptions)
         {
-
+            this.Database.EnsureCreated();
         }
 
 
@@ -25,6 +25,7 @@ namespace TestApp.Context
             builder.Entity<ApplicationUser>()
                 .HasData(new List<ApplicationUser>()
                 {
+
                     new ApplicationUser()
                     {
                        Id ="1" ,
@@ -45,6 +46,7 @@ namespace TestApp.Context
                        LockoutEnabled = false,
                        LockoutEnd = DateTime.Now,
                     },
+
                     new ApplicationUser()
                     {
                        Id ="2" ,
@@ -53,7 +55,28 @@ namespace TestApp.Context
                        UserName = "Owner",
                        NormalizedUserName = "OWNER",
                        PhoneNumber = "+111111111111",
-                       EmailConfirmed = true,
+                       EmailConfirmed = false,
+                       PhoneNumberConfirmed = true,
+                       SecurityStamp = Guid.NewGuid().ToString("D"),
+                       AccessFailedCount = 1,
+                       CreatedAt = DateTime.Now,
+                       UserRoles = null,
+                       TwoFactorEnabled = false,
+                       PasswordHash ="string1",
+                       ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                       LockoutEnabled = false,
+                       LockoutEnd = DateTime.Now,
+                    },
+
+                    new ApplicationUser()
+                    {
+                       Id ="3" ,
+                       Email = "bye@example.com",
+                       NormalizedEmail = "BYE@EXAMPLE.COM",
+                       UserName = "Owner",
+                       NormalizedUserName = "OWNER",
+                       PhoneNumber = "+111111111111",
+                       EmailConfirmed = false,
                        PhoneNumberConfirmed = true,
                        SecurityStamp = Guid.NewGuid().ToString("D"),
                        AccessFailedCount = 1,

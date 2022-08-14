@@ -25,7 +25,7 @@ namespace TestApp.BackgroundTask
             //{
             //    _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.Zero);
             //}
-            _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
+            _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
 
             return Task.CompletedTask;
         }
@@ -49,8 +49,10 @@ namespace TestApp.BackgroundTask
                 {
                     if (!item.EmailConfirmed)
                     {
-                        rep.UpdateUser(item);
-                        await rep.SaveChanges();
+                        item.EmailConfirmed = true;
+
+                        await rep.UpdateUser(item);
+
                     }
                 }
             }

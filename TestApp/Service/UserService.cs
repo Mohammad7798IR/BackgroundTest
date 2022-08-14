@@ -1,4 +1,5 @@
-﻿using TestApp.Models;
+﻿using TestApp.DTOs;
+using TestApp.Models;
 using TestApp.Repository;
 
 namespace TestApp.Service
@@ -18,5 +19,25 @@ namespace TestApp.Service
             return await _userRepository.GetAllUsers();
         }
 
+
+        public async Task<bool> SignUp(SignUpDTO signUpDTO)
+        {
+            var user = new ApplicationUser()
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = signUpDTO.Username,
+                PasswordHash = signUpDTO.Password,
+                EmailConfirmed = false
+            };
+
+            if (await _userRepository.SignUp(user))
+            {
+                await _userRepository.SaveChanges();
+                return true;
+            }
+
+
+            return false;
+        }
     }
 }
