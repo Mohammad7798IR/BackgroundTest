@@ -21,7 +21,7 @@ namespace TestApp.BackgroundTask
         public Task StartAsync(CancellationToken cancellationToken)
         {
             _timer =
-                new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
+                new Timer(UpdateUser, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
 
             return Task.CompletedTask;
         }
@@ -32,7 +32,7 @@ namespace TestApp.BackgroundTask
             return Task.CompletedTask;
         }
 
-        private async void RemoveUser(object? state)
+        private async void UpdateUser(object? state)
         {
 
             using (var scope = _serviceScopeFactory.CreateScope())

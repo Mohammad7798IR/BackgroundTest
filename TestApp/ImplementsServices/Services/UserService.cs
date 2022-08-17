@@ -8,6 +8,8 @@ namespace TestApp.Implements.Services
     public class UserService : IUserService
     {
 
+        #region Fields
+
         private readonly IUserRepository _userRepository;
 
         public UserService(IUserRepository userRepository)
@@ -15,30 +17,44 @@ namespace TestApp.Implements.Services
             _userRepository = userRepository;
         }
 
-        public async Task<List<ApplicationUser>> GetAllUsers()
+        #endregion
+
+        #region Method [s]
+
+        public async Task<List<ApplicationUser>> GetAllUsers(string key)
         {
-            return await _userRepository.GetAllUsers();
+            if (!string.IsNullOrEmpty(key))
+            {
+                return await _userRepository.GetAllUsers();
+            }
+            return null;
         }
 
-
-        public async Task<bool> SignUp(SignUpDTO signUpDTO)
+        public async Task<bool> SignUp(string key, SignUpDTO signUpDTO)
         {
-            var user = new ApplicationUser()
-            {
-                Id = Guid.NewGuid().ToString(),
-                UserName = signUpDTO.Username,
-                PasswordHash = signUpDTO.Password,
-                EmailConfirmed = false
-            };
 
-            if (await _userRepository.SignUp(user))
+            if (!string.IsNullOrEmpty(key))
             {
-                await _userRepository.SaveChanges();
-                return true;
+                var user = new ApplicationUser()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserName = signUpDTO.Username,
+                    PasswordHash = signUpDTO.Password,
+                    EmailConfirmed = false
+                };
+
+                if (await _userRepository.SignUp(user))
+                {
+                    await _userRepository.SaveChanges();
+                    return true;
+                }
             }
 
 
             return false;
         }
+
+        #endregion
+
     }
 }

@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using TestApp.DTOs;
+using TestApp.Filters;
 using TestApp.Implements.Interface;
 
 
 
 namespace TestApp.Controllers
 {
-    [EnableCors]
+    //[EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
 
-        #region Ctor
+        #region Fields
 
         private readonly IUserService _userService;
 
@@ -25,14 +26,14 @@ namespace TestApp.Controllers
         #endregion
 
 
-        #region Method[s]
+        #region Method [s]
 
         [HttpPost]
         [Route("SignUp")]
-        public async Task<IActionResult> SignUp(SignUpDTO signUpDTO)
+        public async Task<IActionResult> SignUp([FromHeader] string Id, SignUpDTO signUpDTO)
         {
 
-            if (await _userService.SignUp(signUpDTO))
+            if (await _userService.SignUp(Id, signUpDTO))
             {
                 return Ok();
             }
@@ -41,10 +42,10 @@ namespace TestApp.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllUsers")]
-        public async Task<IActionResult> GetAll()
+        [Route("GetAll")]
+        public async Task<IActionResult> GetAll([FromHeader] string Id)
         {
-            return Ok(await _userService.GetAllUsers());
+            return Ok(await _userService.GetAllUsers(Id));
         }
 
         #endregion

@@ -8,6 +8,9 @@ namespace TestApp.ImplementsRepository.Repositories
 {
     public class UserRepository : IUserRepository
     {
+
+        #region Fields
+
         private readonly TestDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -16,6 +19,10 @@ namespace TestApp.ImplementsRepository.Repositories
             _context = context;
             _userManager = userManager;
         }
+
+        #endregion
+
+        #region Method [s]
 
         public async Task<List<ApplicationUser>> GetAllUsers()
         {
@@ -36,5 +43,8 @@ namespace TestApp.ImplementsRepository.Repositories
         {
             await _context.SaveChangesAsync();
         }
+
+        #endregion
+
     }
 }

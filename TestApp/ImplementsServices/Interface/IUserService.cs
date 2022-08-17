@@ -5,10 +5,10 @@ namespace TestApp.Implements.Interface
 {
     public interface IUserService
     {
-        Task<List<ApplicationUser>> GetAllUsers();
+        Task<List<ApplicationUser>> GetAllUsers(string key);
 
 
-        Task<bool> SignUp(SignUpDTO signUpDTO);
+        Task<bool> SignUp(string key, SignUpDTO signUpDTO);
 
         //void UpdateUser(ApplicationUser user);
 
