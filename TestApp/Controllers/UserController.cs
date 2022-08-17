@@ -1,22 +1,31 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using TestApp.Models;
 using TestApp.DTOs;
-using TestApp.Service;
+using TestApp.Implements.Interface;
+
+
 
 namespace TestApp.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
+
+        #region Ctor
+
         private readonly IUserService _userService;
 
         public UserController(IUserService userService)
         {
             _userService = userService;
         }
+
+        #endregion
+
+
+        #region Method[s]
 
         [HttpPost]
         [Route("SignUp")]
@@ -30,5 +39,15 @@ namespace TestApp.Controllers
 
             return Conflict();
         }
+
+        [HttpGet]
+        [Route("GetAllUsers")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _userService.GetAllUsers());
+        }
+
+        #endregion
+
     }
 }

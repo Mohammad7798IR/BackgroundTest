@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using TestApp.Context;
 using TestApp.Models;
+using TestApp.ImplementsRepository.Interfaces;
 
-namespace TestApp.Repository
+namespace TestApp.ImplementsRepository.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -25,7 +26,6 @@ namespace TestApp.Repository
         {
             return (await _userManager.CreateAsync(user, user.PasswordHash)).Succeeded;
         }
-
 
         public async Task<bool> UpdateUser(ApplicationUser user)
         {

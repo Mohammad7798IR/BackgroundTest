@@ -16,9 +16,6 @@ namespace TestApp.Context
         }
 
 
-
-
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
@@ -88,6 +85,7 @@ namespace TestApp.Context
                        LockoutEnabled = false,
                        LockoutEnd = DateTime.Now,
                     }
+
                 });
 
 

@@ -42,3 +42,4 @@ C:\Users\Mohammadali.Ebrahimz\source\repos\TestApp\TestApp\bin\Debug\net6.0\Micr
 C:\Users\Mohammadali.Ebrahimz\source\repos\TestApp\TestApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Mohammadali.Ebrahimz\source\repos\TestApp\TestApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Mohammadali.Ebrahimz\source\repos\TestApp\TestApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Mohammadali.Ebrahimz\source\repos\TestApp\TestApp\bin\Debug\net6.0\Newtonsoft.Json.dll

@@ -1,5 +1,5 @@
-﻿using TestApp.Repository;
-using TestApp.Service;
+﻿using TestApp.ImplementsRepository.Repositories;
+using TestApp.ImplementsRepository.Interfaces;
 
 namespace TestApp.BackgroundTask
 {
@@ -15,17 +15,13 @@ namespace TestApp.BackgroundTask
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _timer?.Dispose();
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-
-            //if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
-            //{
-            //    _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.Zero);
-            //}
-            _timer = new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
+            _timer =
+                new Timer(RemoveUser, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
 
             return Task.CompletedTask;
         }
@@ -58,5 +54,8 @@ namespace TestApp.BackgroundTask
             }
 
         }
+
+
+       
     }
 }

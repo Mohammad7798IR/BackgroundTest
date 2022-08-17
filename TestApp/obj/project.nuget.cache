@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WHW2fNmcqqaCNp9+KvbzTV5CtsywkkP8dzPMvjkoJYcztFhJmByYrLyn63LtFPdHJATAcezWJKW1kG3fUBR/5g==",
+  "dgSpecHash": "eiNLcf0f//cU0Zwhj1bMT9Uo9nWpOzgu0+t4vxbT4UD+ZgAiOVYP9Sd4ODWWF7SmqAIV+Lh540ynL2bnvrekZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mohammadali.Ebrahimz\\source\\repos\\TestApp\\TestApp\\TestApp.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
     "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Mohammadali.Ebrahimz\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

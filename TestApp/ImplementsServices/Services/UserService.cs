@@ -1,8 +1,9 @@
 ﻿using TestApp.DTOs;
 using TestApp.Models;
-using TestApp.Repository;
+using TestApp.ImplementsRepository.Interfaces;
+using TestApp.Implements.Interface;
 
-namespace TestApp.Service
+namespace TestApp.Implements.Services
 {
     public class UserService : IUserService
     {

@@ -1,7 +1,7 @@
 ﻿using TestApp.Models;
 
 
-namespace TestApp.Repository
+namespace TestApp.ImplementsRepository.Interfaces
 {
     public interface IUserRepository
     {

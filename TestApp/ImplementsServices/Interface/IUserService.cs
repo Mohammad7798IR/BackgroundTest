@@ -1,7 +1,7 @@
 ﻿using TestApp.DTOs;
 using TestApp.Models;
 
-namespace TestApp.Service
+namespace TestApp.Implements.Interface
 {
     public interface IUserService
     {
